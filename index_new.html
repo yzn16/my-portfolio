@@ -233,13 +233,12 @@
         const arrowDown = document.querySelector('.scroll-down');
         const arrowUp = document.querySelector('.scroll-up');
         
-        // تحديث حالة السهم عند التمرير
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
             const windowHeight = window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight;
             
-            if (scrollPosition > windowHeight * 0.3) {
+            if (scrollPosition > 100) {
                 scrollIndicator.classList.add('scrolled');
                 arrowDown.style.opacity = '0';
                 arrowUp.style.opacity = '1';
@@ -247,34 +246,6 @@
                 scrollIndicator.classList.remove('scrolled');
                 arrowDown.style.opacity = '1';
                 arrowUp.style.opacity = '0';
-            }
-
-            // إخفاء السهم عند الوصول لنهاية الصفحة
-            if (scrollPosition + windowHeight >= documentHeight - 100) {
-                scrollIndicator.style.opacity = '0';
-            } else {
-                scrollIndicator.style.opacity = '1';
-            }
-        });
-
-        // وظيفة التمرير السلس
-        scrollIndicator.addEventListener('click', () => {
-            const scrollPosition = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-
-            if (scrollPosition > windowHeight * 0.3) {
-                // التمرير لأعلى
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            } else {
-                // التمرير لأسفل
-                window.scrollTo({
-                    top: windowHeight,
-                    behavior: 'smooth'
-                });
             }
         });
 
