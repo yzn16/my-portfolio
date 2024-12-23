@@ -3,39 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر تطبيقاتي - محمد</title>
+    <title>متجر التطبيقات - محمد الطليحي</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- القائمة العلوية -->
     <header class="top-header">
-        <div class="container">
-            <nav class="nav-header">
-                <div class="nav-content container">
-                    <div class="logo">Mohammed</div>
+        <nav class="mobile-nav">
+            <div class="nav-content container">
+                <div class="logo">
+                    <div class="code-logo">
+                        <span class="bracket">{</span>
+                        <div class="typing-container">
+                            <i class="fas fa-feather-alt"></i>
+                            <span class="variable">Eagle</span>
+                            <span class="operator">Tech</span>
+                        </div>
+                        <span class="bracket">}</span>
+                    </div>
                 </div>
-            </nav>
-        </div>
+                
+                <button class="menu-toggle" aria-label="القائمة">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+
+                <div class="mobile-menu">
+                    <div class="menu-header">
+                        <span>القائمة</span>
+                        <button class="close-menu" aria-label="إغلاق">×</button>
+                    </div>
+                    <ul class="menu-items">
+                        <li><a href="index.html" class="menu-link">الرئيسية</a></li>
+                        <li><a href="index.html#services" class="menu-link">خدماتي</a></li>
+                        <li><a href="apps.html" class="menu-link active">متجر التطبيقات</a></li>
+                        <li>
+                            <a href="https://wa.me/201553634656" class="menu-link contact-link" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                تواصل معي
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
+    <!-- قسم التطبيقات -->
     <main>
         <section class="apps-section">
             <div class="container">
-                <h1 class="section-title">متجر تطبيقاتي</h1>
+                <div class="section-header">
+                    <span class="section-badge">تطبيقاتي</span>
+                    <h1>أحدث التطبيقات</h1>
+                    <p>مجموعة من أفضل تطبيقاتي المتوفرة للتحميل</p>
+                </div>
+
                 <div class="apps-grid">
-                    <!-- نموذج لبطاقة تطبيق -->
+                    <!-- تطبيق 1 -->
                     <div class="app-card">
-                        <div class="app-icon">
-                            <img src="path-to-icon.png" alt="اسم التطبيق">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="path/to/app1-screenshot.jpg" alt="تطبيق القرآن الكريم">
+                            </div>
                         </div>
                         <div class="app-info">
-                            <h3>اسم التطبيق</h3>
-                            <p class="app-description">وصف مختصر للتطبيق وأهم مميزاته</p>
-                            <div class="app-meta">
-                                <span class="app-category">الفئة</span>
-                                <span class="app-size">5 MB</span>
+                            <h3>تطبيق القرآن الكريم</h3>
+                            <div class="app-features">
+                                <div class="feature">
+                                    <i class="fas fa-book"></i>
+                                    <span>قراءة القرآن بخط واضح</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-headphones"></i>
+                                    <span>الاستماع لأشهر القراء</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-bookmark"></i>
+                                    <span>حفظ وتحديد المواضع</span>
+                                </div>
                             </div>
-                            <a href="#" class="download-btn">تحميل التطبيق</a>
+                            <div class="app-buttons">
+                                <a href="#" class="download-btn">
+                                    <i class="fab fa-google-play"></i>
+                                    تحميل التطبيق
+                                </a>
+                                <a href="#" class="preview-btn">
+                                    <i class="fas fa-eye"></i>
+                                    معاينة
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تطبيق 2 -->
+                    <div class="app-card reversed">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="path/to/app2-screenshot.jpg" alt="تطبيق الأذكار">
+                            </div>
+                        </div>
+                        <div class="app-info">
+                            <h3>تطبيق الأذكار</h3>
+                            <div class="app-features">
+                                <div class="feature">
+                                    <i class="fas fa-moon"></i>
+                                    <span>أذكار الصباح والمساء</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-bell"></i>
+                                    <span>تنبيهات للأذكار</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-heart"></i>
+                                    <span>تخصيص المفضلة</span>
+                                </div>
+                            </div>
+                            <div class="app-buttons">
+                                <a href="#" class="download-btn">
+                                    <i class="fab fa-google-play"></i>
+                                    تحميل التطبيق
+                                </a>
+                                <a href="#" class="preview-btn">
+                                    <i class="fas fa-eye"></i>
+                                    معاينة
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

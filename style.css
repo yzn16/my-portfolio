@@ -1,3 +1,204 @@
+/* تنسيقات صفحة التطبيقات */
+.apps-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f6f9fc 0%, #f1f4f8 100%);
+}
+
+.apps-grid {
+    display: grid;
+    gap: 4rem;
+    padding: 2rem 0;
+}
+
+.app-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.app-card.reversed {
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.phone-frame {
+    position: relative;
+    width: 100%;
+    padding-top: 200%;
+    background: #1a1a1a;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.phone-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 20px;
+    background: #1a1a1a;
+    border-radius: 0 0 15px 15px;
+}
+
+.phone-screen {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.app-info {
+    padding: 1rem;
+}
+
+.app-info h3 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.app-features {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.feature i {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.app-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.download-btn, .preview-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.preview-btn {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.download-btn:hover, .preview-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* تجاوب للشاشات المختلفة */
+@media (max-width: 992px) {
+    .app-card, .app-card.reversed {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .phone-frame {
+        padding-top: 180%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .app-features {
+        justify-content: center;
+    }
+
+    .feature {
+        justify-content: center;
+    }
+
+    .app-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .apps-section {
+        padding: 4rem 0;
+    }
+
+    .apps-grid {
+        gap: 2rem;
+    }
+
+    .app-card {
+        padding: 1.5rem;
+    }
+
+    .app-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .feature {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .phone-frame {
+        padding-top: 160%;
+        max-width: 220px;
+    }
+
+    .app-buttons {
+        flex-direction: column;
+    }
+
+    .download-btn, .preview-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 .code-scroll-indicator {
     position: absolute;
     bottom: 2rem;
