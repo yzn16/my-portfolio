@@ -1,3 +1,216 @@
+/* تحسينات للشاشات المتوسطة والصغيرة */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero-content {
+        padding: 2rem 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-title {
+        font-size: 1.2rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .code-logo {
+        font-size: 1.1rem;
+    }
+    
+    .typing-container i {
+        font-size: 1.3rem;
+    }
+    
+    .bracket {
+        font-size: 1.3rem;
+    }
+
+    .mobile-menu {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .menu-header span {
+        font-size: 1.2rem;
+    }
+
+    .menu-link {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    .contact-link {
+        padding: 1rem !important;
+    }
+}
+
+/* تحسينات للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .code-logo {
+        font-size: 1rem;
+    }
+    
+    .typing-container i {
+        font-size: 1.2rem;
+    }
+    
+    .bracket {
+        font-size: 1.1rem;
+    }
+
+    .mobile-menu {
+        width: 100%;
+        max-width: none;
+        padding: 1.2rem;
+    }
+
+    .menu-header {
+        margin-bottom: 1.2rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .menu-header span {
+        font-size: 1.1rem;
+    }
+
+    .close-menu {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+
+    .menu-link {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .contact-link {
+        padding: 0.8rem !important;
+        font-size: 0.95rem;
+    }
+
+    .contact-link i {
+        font-size: 1.1rem;
+    }
+
+    .service-card {
+        padding: 1.2rem;
+    }
+
+    .service-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .service-description {
+        font-size: 0.9rem;
+    }
+
+    /* تحسين المسافات العامة */
+    .section {
+        padding: 3rem 0;
+    }
+
+    .container {
+        padding: 0 0.8rem;
+    }
+
+    /* تحسين أحجام الأزرار */
+    .menu-toggle {
+        padding: 0.6rem;
+    }
+
+    .hamburger {
+        width: 20px;
+        height: 16px;
+    }
+
+    .hamburger span {
+        height: 2px;
+    }
+}
+
+/* تحسينات للشاشات الصغيرة جداً */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .code-logo {
+        font-size: 0.9rem;
+    }
+
+    .menu-link {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-link {
+        padding: 0.7rem !important;
+    }
+}
+
+/* تحسين الارتفاع للشاشات القصيرة */
+@media (max-height: 600px) {
+    .mobile-menu {
+        padding-top: 1rem;
+    }
+
+    .menu-header {
+        margin-bottom: 1rem;
+    }
+
+    .menu-link {
+        padding: 0.6rem 1rem;
+    }
+
+    .menu-items {
+        gap: 0.3rem;
+    }
+}
+
 :root {
     --primary-color: #2563eb;
     --primary-color-rgb: 37, 99, 235;
