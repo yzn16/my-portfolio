@@ -117,7 +117,10 @@
                 </div>
             </div>
             <div class="arrow-scroll-indicator left">
-                <i class="fas fa-arrow-down"></i>
+                <div class="arrow-wrapper">
+                    <i class="fas fa-chevron-down scroll-down"></i>
+                    <i class="fas fa-chevron-up scroll-up"></i>
+                </div>
             </div>
         </section>
 
@@ -172,9 +175,45 @@
         </section>
     </main>
     <script>
-        document.querySelector('.arrow-scroll-indicator').addEventListener('click', () => {
-            const servicesSection = document.getElementById('services');
-            servicesSection.scrollIntoView({ behavior: 'smooth' });
+        const scrollIndicator = document.querySelector('.arrow-scroll-indicator');
+        const arrowDown = document.querySelector('.scroll-down');
+        const arrowUp = document.querySelector('.scroll-up');
+        
+        // تحديد موقع التمرير وتغيير شكل السهم
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            if (scrollPosition < windowHeight * 0.5) {
+                // في الأعلى - نظهر سهم لأسفل بلون مختلف
+                scrollIndicator.classList.remove('bottom');
+                scrollIndicator.classList.add('top');
+                arrowDown.style.display = 'block';
+                arrowUp.style.display = 'none';
+            } else if (scrollPosition + windowHeight > documentHeight - 100) {
+                // في الأسفل - نظهر سهم لأعلى بلون مختلف
+                scrollIndicator.classList.remove('top');
+                scrollIndicator.classList.add('bottom');
+                arrowDown.style.display = 'none';
+                arrowUp.style.display = 'block';
+            }
+        });
+
+        // التمرير عند النقر
+        scrollIndicator.addEventListener('click', () => {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            if (scrollPosition < windowHeight * 0.5) {
+                // التمرير لأسفل
+                const servicesSection = document.getElementById('services');
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // التمرير لأعلى
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
     </script>
     <script src="script.js"></script>
