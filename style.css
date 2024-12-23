@@ -460,35 +460,146 @@ body {
 }
 
 .profile-image {
-    inline-size: 100%;
-    block-size: 100%;
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 30px;
-    transition: all 0.5s ease;
-    filter: contrast(1.05) saturate(1.1);
 }
 
-.image-container:hover .profile-image {
-    transform: scale(1.05);
-    filter: contrast(1.1) saturate(1.2);
-}
-
-.image-container::before {
-    content: '';
+.experience-badge {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
-    z-index: 2;
-    transition: transform 0.5s ease;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.image-container:hover::before {
-    transform: translateX(100%);
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 2rem 0;
+}
+
+.tech-icons img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.tech-icons img:hover {
+    transform: scale(1.1);
+}
+
+.action-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.action-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.action-link:hover {
+    background: var(--bg-secondary);
+    transform: translateY(-2px);
+}
+
+.services-section {
+    padding-top: 3rem;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.services-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.services-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .profile-image {
+        width: 160px;
+        height: 160px;
+    }
+
+    .tech-icons {
+        gap: 2rem;
+    }
+
+    .tech-icons img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .action-links {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .experience-badge {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .tech-icons {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .tech-icons img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .action-links {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-link {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 .blob-bg {
