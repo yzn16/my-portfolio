@@ -11,19 +11,25 @@ function initializeMobileMenu() {
     const overlay = document.querySelector('.menu-overlay');
     const body = document.body;
 
-    if (!menuToggle || !mobileMenu || !overlay) return;
+    if (!menuToggle || !mobileMenu || !overlay) {
+        console.error('Required elements not found');
+        return;
+    }
 
     // فتح القائمة
     menuToggle.addEventListener('click', () => {
+        console.log('Toggle menu clicked');
         toggleMenu(true);
     });
 
     // إغلاق القائمة
     closeMenu?.addEventListener('click', () => {
+        console.log('Close menu clicked');
         toggleMenu(false);
     });
 
     overlay.addEventListener('click', () => {
+        console.log('Overlay clicked');
         toggleMenu(false);
     });
 
@@ -57,6 +63,7 @@ function initializeMobileMenu() {
     });
 
     function toggleMenu(show) {
+        console.log('Toggling menu:', show);
         menuToggle.classList.toggle('active', show);
         mobileMenu.classList.toggle('active', show);
         overlay.classList.toggle('active', show);
