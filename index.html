@@ -116,31 +116,8 @@
                     </div>
                 </div>
             </div>
-            <div class="code-scroll-indicator left">
-                <div class="code-block">
-                    <div class="code-line">
-                        <span class="keyword">function</span>
-                        <span class="function">scrollDown</span>
-                        <span class="punctuation">()</span>
-                        <span class="punctuation">{</span>
-                    </div>
-                    <div class="code-line indent">
-                        <span class="keyword">const</span>
-                        <span class="variable">nextSection</span>
-                        <span class="operator">=</span>
-                        <span class="string">'services'</span>
-                    </div>
-                    <div class="code-line indent">
-                        <span class="function">explore</span>
-                        <span class="punctuation">(</span>
-                        <span class="variable">nextSection</span>
-                        <span class="punctuation">)</span>
-                    </div>
-                    <div class="code-line">
-                        <span class="punctuation">}</span>
-                    </div>
-                    <div class="cursor"></div>
-                </div>
+            <div class="arrow-scroll-indicator left">
+                <i class="fas fa-arrow-down"></i>
             </div>
         </section>
 
@@ -195,7 +172,7 @@
         </section>
     </main>
     <script>
-        document.querySelector('.code-scroll-indicator').addEventListener('click', () => {
+        document.querySelector('.arrow-scroll-indicator').addEventListener('click', () => {
             const servicesSection = document.getElementById('services');
             servicesSection.scrollIntoView({ behavior: 'smooth' });
         });

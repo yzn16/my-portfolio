@@ -1989,3 +1989,61 @@ body {
         font-size: 1.1rem;
     }
 }
+
+.arrow-scroll-indicator.left {
+    position: fixed;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 100;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.arrow-scroll-indicator.left i {
+    color: white;
+    font-size: 1.5rem;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+
+.arrow-scroll-indicator.left:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-scroll-indicator.left:hover i {
+    transform: rotate(90deg) translateX(3px);
+}
+
+@media (max-width: 768px) {
+    .arrow-scroll-indicator.left {
+        width: 40px;
+        height: 40px;
+        left: 1rem;
+    }
+
+    .arrow-scroll-indicator.left i {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .arrow-scroll-indicator.left {
+        width: 35px;
+        height: 35px;
+        left: 0.8rem;
+    }
+
+    .arrow-scroll-indicator.left i {
+        font-size: 1rem;
+    }
+}
