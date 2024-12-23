@@ -527,7 +527,7 @@ body {
 }
 
 .contact-button:hover {
-    background: #1d4ed8;
+    background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
 }
@@ -1681,5 +1681,128 @@ body {
 
     .contact-link {
         margin-top: 0.8rem;
+    }
+}
+
+.animated-text-container {
+    text-align: center;
+    padding: 3rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--primary-color), #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.typing-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+}
+
+.text {
+    position: relative;
+    color: var(--text-primary);
+}
+
+.sec-text {
+    color: var(--primary-color);
+    position: relative;
+}
+
+.sec-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--bg-primary);
+    border-left: 2px solid var(--primary-color);
+    animation: typing 4s steps(12) infinite;
+}
+
+.animated-description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.4s;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, var(--text-primary), var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-text.highlight {
+    background: linear-gradient(45deg, var(--primary-color), #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+@keyframes typing {
+    40%, 60% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تحسين التجاوب */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.8rem;
+    }
+
+    .typing-text {
+        font-size: 1.6rem;
+    }
+
+    .animated-description {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .typing-text {
+        font-size: 1.4rem;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .animated-description {
+        font-size: 1.1rem;
     }
 }
