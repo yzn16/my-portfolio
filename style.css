@@ -1684,6 +1684,171 @@ body {
     }
 }
 
+.logo-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-wrapper {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.logo-letter {
+    font-size: 6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: letterFloat 3s ease-in-out infinite;
+}
+
+.logo-letter:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.logo-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    margin-top: 2rem;
+    animation: dotPulse 2s ease-in-out infinite;
+}
+
+.logo-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    margin-top: 1rem;
+}
+
+.logo-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    opacity: 0.1;
+}
+
+.ring1 {
+    width: 300px;
+    height: 300px;
+    animation: ringFloat 6s ease-in-out infinite;
+}
+
+.ring2 {
+    width: 250px;
+    height: 250px;
+    animation: ringFloat 6s ease-in-out infinite reverse;
+}
+
+.ring3 {
+    width: 200px;
+    height: 200px;
+    animation: ringFloat 6s ease-in-out infinite;
+}
+
+@keyframes letterFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes dotPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.4;
+    }
+}
+
+@keyframes ringFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+}
+
+/* تحسين التجاوب */
+@media (max-width: 768px) {
+    .logo-container {
+        height: 300px;
+    }
+
+    .logo-letter {
+        font-size: 4.5rem;
+    }
+
+    .logo-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .logo-subtitle {
+        font-size: 1rem;
+    }
+
+    .ring1 { width: 250px; height: 250px; }
+    .ring2 { width: 200px; height: 200px; }
+    .ring3 { width: 150px; height: 150px; }
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        height: 250px;
+    }
+
+    .logo-letter {
+        font-size: 3.5rem;
+    }
+
+    .logo-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .logo-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .ring1 { width: 200px; height: 200px; }
+    .ring2 { width: 160px; height: 160px; }
+    .ring3 { width: 120px; height: 120px; }
+}
+
 .animated-text-container {
     text-align: center;
     padding: 3rem 1rem;
