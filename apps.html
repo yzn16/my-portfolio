@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="menu-overlay"></div>
+    
     <!-- القائمة العلوية -->
     <header class="top-header">
         <nav class="mobile-nav">
@@ -54,16 +56,28 @@
         </nav>
     </header>
 
-    <!-- قسم التطبيقات -->
+    <!-- القسم الرئيسي -->
     <main>
-        <section class="apps-section">
+        <!-- قسم مقدمة المتجر -->
+        <section class="store-intro">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-badge">تطبيقاتي</span>
-                    <h1>أحدث التطبيقات</h1>
-                    <p>مجموعة من أفضل تطبيقاتي المتوفرة للتحميل</p>
+                    <span class="section-badge">متجر التطبيقات</span>
+                    <h1>تطبيقات مميزة</h1>
+                    <p>مجموعة من التطبيقات الإسلامية المتميزة بتصميم عصري وأداء عالي</p>
                 </div>
+            </div>
+            <div class="arrow-scroll-indicator left">
+                <div class="arrow-wrapper">
+                    <i class="fas fa-chevron-down scroll-down"></i>
+                    <i class="fas fa-chevron-up scroll-up"></i>
+                </div>
+            </div>
+        </section>
 
+        <!-- قسم التطبيقات -->
+        <section class="apps-section">
+            <div class="container">
                 <div class="apps-grid">
                     <!-- تطبيق 1 -->
                     <div class="app-card">
@@ -139,8 +153,141 @@
                 </div>
             </div>
         </section>
+
+        <!-- قسم المميزات -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">المميزات</span>
+                    <h2>لماذا تطبيقاتنا مميزة؟</h2>
+                    <p>نقدم تطبيقات عالية الجودة مع مجموعة من المميزات الفريدة</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>تصميم عصري</h3>
+                        <p>واجهات مستخدم سهلة وجذابة تناسب جميع المستخدمين</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>أداء سريع</h3>
+                        <p>تطبيقات خفيفة وسريعة الاستجابة لتجربة استخدام مثالية</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h3>الوضع الليلي</h3>
+                        <p>دعم للوضع الليلي لراحة عينيك أثناء القراءة ليلاً</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h3>تحديثات مستمرة</h3>
+                        <p>تحديثات دورية لإضافة المزيد من المميزات وتحسين الأداء</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        const scrollIndicator = document.querySelector('.arrow-scroll-indicator');
+        const arrowDown = document.querySelector('.scroll-down');
+        const arrowUp = document.querySelector('.scroll-up');
+        let lastClickTime = 0;
+        
+        // تحديث حالة السهم عند التمرير
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            if (scrollPosition > windowHeight * 0.3) {
+                scrollIndicator.classList.add('scrolled');
+                arrowDown.style.opacity = '0';
+                arrowUp.style.opacity = '1';
+            } else {
+                scrollIndicator.classList.remove('scrolled');
+                arrowDown.style.opacity = '1';
+                arrowUp.style.opacity = '0';
+            }
+
+            // إخفاء السهم عند الوصول لنهاية الصفحة
+            if (scrollPosition + windowHeight >= documentHeight - 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
+
+        // وظيفة التمرير السلس مع دعم النقر المزدوج
+        scrollIndicator.addEventListener('click', () => {
+            const currentTime = new Date().getTime();
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            // التحقق من النقر المزدوج (أقل من 300 مللي ثانية)
+            if (currentTime - lastClickTime < 300) {
+                // النقر المزدوج - التمرير إلى نهاية الصفحة
+                window.scrollTo({
+                    top: documentHeight,
+                    behavior: 'smooth'
+                });
+            } else {
+                // نقرة واحدة - التمرير العادي
+                if (scrollPosition > windowHeight * 0.3) {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    window.scrollTo({
+                        top: windowHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            lastClickTime = currentTime;
+        });
+
+        // القائمة المتنقلة
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const closeMenu = document.querySelector('.close-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMenuHandler() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeMenu.addEventListener('click', closeMenuHandler);
+        menuOverlay.addEventListener('click', closeMenuHandler);
+
+        // إغلاق القائمة عند النقر على الروابط
+        const menuLinks = document.querySelectorAll('.menu-link');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenuHandler);
+        });
+    </script>
 </body>
 </html>
