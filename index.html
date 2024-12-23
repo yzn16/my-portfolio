@@ -10,10 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="menu-overlay"></div>
+    
     <!-- القسم العلوي -->
     <header class="top-header">
-        <nav>
-            <div class="nav-content">
+        <nav class="mobile-nav">
+            <div class="nav-content container">
                 <div class="logo">
                     <div class="code-logo">
                         <span class="bracket">{</span>
@@ -25,6 +27,33 @@
                         </div>
                         <span class="bracket">}</span>
                     </div>
+                </div>
+                
+                <button class="menu-toggle" aria-label="القائمة">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+
+                <div class="mobile-menu">
+                    <div class="menu-header">
+                        <span>القائمة</span>
+                        <button class="close-menu" aria-label="إغلاق">×</button>
+                    </div>
+                    <ul class="menu-items">
+                        <li><a href="#home" class="menu-link active">الرئيسية</a></li>
+                        <li><a href="#hero-image" class="menu-link">من أنا</a></li>
+                        <li><a href="#services" class="menu-link">خدماتي</a></li>
+                        <li><a href="#portfolio" class="menu-link">أعمالي</a></li>
+                        <li>
+                            <a href="https://wa.me/201553634656" class="menu-link contact-link" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                تواصل معي
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
