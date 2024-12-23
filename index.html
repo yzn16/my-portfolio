@@ -232,6 +232,7 @@
         const scrollIndicator = document.querySelector('.arrow-scroll-indicator');
         const arrowDown = document.querySelector('.scroll-down');
         const arrowUp = document.querySelector('.scroll-up');
+        let lastClickTime = 0;
         
         // تحديث حالة السهم عند التمرير
         window.addEventListener('scroll', () => {
@@ -257,25 +258,36 @@
             }
         });
 
-        // وظيفة التمرير السلس
+        // وظيفة التمرير السلس مع دعم النقر المزدوج
         scrollIndicator.addEventListener('click', () => {
+            const currentTime = new Date().getTime();
             const scrollPosition = window.scrollY;
             const windowHeight = window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight;
 
-            if (scrollPosition > windowHeight * 0.3) {
-                // التمرير لأعلى
+            // التحقق من النقر المزدوج (أقل من 300 مللي ثانية)
+            if (currentTime - lastClickTime < 300) {
+                // النقر المزدوج - التمرير إلى نهاية الصفحة
                 window.scrollTo({
-                    top: 0,
+                    top: documentHeight,
                     behavior: 'smooth'
                 });
             } else {
-                // التمرير لأسفل
-                window.scrollTo({
-                    top: windowHeight,
-                    behavior: 'smooth'
-                });
+                // نقرة واحدة - التمرير العادي
+                if (scrollPosition > windowHeight * 0.3) {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    window.scrollTo({
+                        top: windowHeight,
+                        behavior: 'smooth'
+                    });
+                }
             }
+
+            lastClickTime = currentTime;
         });
 
         // القائمة المتنقلة
