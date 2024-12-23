@@ -11,6 +11,19 @@
     transform: translateX(-50%) translateY(-5px);
 }
 
+.code-scroll-indicator.left {
+    position: fixed;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.code-scroll-indicator.left:hover {
+    transform: translateY(-50%) translateX(5px);
+}
+
 .code-block {
     background: rgba(30, 41, 59, 0.95);
     padding: 1rem 1.5rem;
